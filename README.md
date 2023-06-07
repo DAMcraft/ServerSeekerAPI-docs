@@ -48,6 +48,7 @@ Great! Now that you got your api_key, you can start using the api!
 | api_key   | yes                 | string | Your api_key                            |
 | name      | either name or uuid | string | The name of the player you want to find |
 | uuid      | either name or uuid | string | The uuid of the player you want to find |
+
 example:
 ```json5
 {
@@ -76,6 +77,7 @@ returns:
 | api_key   | yes                | string | Your api_key                                             |
 | ip        | yes                | string | The ip of the server you want to get information about   |
 | port      | no (default=25565) | int    | The port of the server you want to get information about |
+
 example:
 ```json5
 {
@@ -116,6 +118,7 @@ returns:
 | description    | no                                          | string | The description aka motd of the servers should have                                                                                                        |
 | protocol       | no                                          | int    | The protocol version of the server                                                                                                                         |
 | online_after   | no (default=last_scan!!!, set to 0 for all) | int    | The server should have been online after this unix timestamp. Defaults to showing all servers which were online at last ping. Set to 0 to show all servers |
+
 example:
 ```json5 
 {
