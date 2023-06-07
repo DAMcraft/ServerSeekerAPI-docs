@@ -39,6 +39,7 @@ The POST request should look like this:
 ## Using the api_key to find servers
 
 Great! Now that you got your api_key, you can start using the api!
+#### The base url is __**`https://serverseeker.damcraft.de`**__.
 
 ### /api/v1/whereis
 
