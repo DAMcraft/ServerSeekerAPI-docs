@@ -469,3 +469,27 @@ paths:
                   error:
                     type: string
                     description: The error message
+  /stats:
+    get:
+      summary: Get stats about ServerSeeker
+      description: "Gives you stats about ServerSeeker. Very inaccurate."
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      server_count:
+                        type: integer
+                        description: The amount of servers in the database
+                      player_history_count:
+                        type: integer
+                        description: The amount of players in the database
+                    example:
+                      server_count: 936207
+                      player_history_count: 42175558
