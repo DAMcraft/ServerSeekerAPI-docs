@@ -14,7 +14,7 @@ Just open the following url in your browser and login with your discord account.
 You will be redirected to the callback url which will automatically generate your api_key.
 
 ```
-https://discord.com/api/oauth2/authorize?client_id=1087083964432404590&redirect_uri=https%3A%2F%2Fserverseeker.damcraft.de%2Fapi%2Fv1%2Fdiscord_callback&response_type=code&scope=identify
+https://discord.com/api/oauth2/authorize?client_id=1087083964432404590&redirect_uri=https%3A%2F%2Fapi.serverseeker.net%2Fdiscord_callback&response_type=code&scope=identify
 ```
 ---
 
