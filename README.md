@@ -26,7 +26,7 @@ This link will redirect to the callback on 127.0.0.1:7637, and you can get the `
 
 This can then be sent using a POST request to the following url to get your api_key.
 ```
-https://serverseeker.damcraft.de/api/v1/get_token
+https://api.serverseeker.net/get_token
 ```
 The POST request should look like this:
 ```json
@@ -39,9 +39,9 @@ The POST request should look like this:
 ## Using the api_key to find servers
 
 Great! Now that you got your api_key, you can start using the api!
-#### The base url is __**`https://serverseeker.damcraft.de`**__.
+#### The base url is __**`https://api.serverseeker.net`**__.
 
-### /api/v1/whereis
+### /whereis
 
 | Parameter | Required            | Type   | Description                             |
 |-----------|---------------------|--------|-----------------------------------------|
@@ -70,7 +70,7 @@ returns:
 }
 ```
 ---
-### /api/v1/server_info
+### /server_info
 
 | Parameter | Required           | Type   | Description                                              |
 |-----------|--------------------|--------|----------------------------------------------------------|
@@ -106,7 +106,7 @@ returns:
 }
 ```
 ---
-### /api/v1/servers
+### /servers
 (if a param is not given, any value is accepted, except for online_after, which defaults to the last scan time)
 
 | Parameter      | Required                                    | Type   | Description                                                                                                                                                |
