@@ -2,14 +2,14 @@ openapi: 3.0.3
 info:
   title: ServerSeeker API docs
   description: "**Click [here](https://discord.com/api/oauth2/authorize?client_id=1087083964432404590&redirect_uri=https%3A%2F%2Fapi.serverseeker.net%2Fdiscord_callback&response_type=code&scope=identify) to get your API key**.
-  If you want to get the api_key locally, simply start a server on the port 7637. 
-  [This](https://discord.com/api/oauth2/authorize?client_id=1087083964432404590&redirect_uri=http%3A%2F%2F127.0.0.1%3A7637%2F&response_type=code&scope=identify)
-   link will redirect to the callback on 127.0.0.1:7637, and you can get the code as a GET parameter.
-  To trade this code for an API key, see below. 
-  
-  Hint: A successful query ALWAYS return 200. If it is unsuccessful, it will ALWAYS return a description of the error in the body ({\"error\": \"error message\"}).
-  Every query might return an unexpected 500 error. If this happens, please contact us on our [discord server](https://discord.gg/jVyHyYbqdS).
-  "
+                If you want to get the api_key locally, simply start a server on the port 7637. 
+                [This](https://discord.com/api/oauth2/authorize?client_id=1087083964432404590&redirect_uri=http%3A%2F%2F127.0.0.1%3A7637%2F&response_type=code&scope=identify)
+                link will redirect to the callback on 127.0.0.1:7637, and you can get the code as a GET parameter.
+                To trade this code for an API key, see below. 
+                Info: Instead of passing the API key in the body, you can also pass it as a bearer token in a header. (Authorization: Bearer your_api_key)
+                Hint: A successful query ALWAYS return 200. If it is unsuccessful, it will ALWAYS return a description of the error in the body ({\"error\": \"error message\"}).
+                Every query might return an unexpected 500 error. If this happens, please contact us on our [discord server](https://discord.gg/jVyHyYbqdS).  
+                "
   version: 1.0.0
   termsOfService: https://github.com/DAMcraft/ServerSeeker-TOS
 externalDocs:
@@ -17,8 +17,6 @@ externalDocs:
   url: https://discord.gg/jVyHyYbqdS
 servers:
   - url: https://api.serverseeker.net
-  - url: https://serverseeker.damcraft.de/api/v1
-    description: (deprecated)
 paths:
   /discord_callback:
     get:
@@ -138,8 +136,7 @@ paths:
   /whereis:
     post:
       summary: Search where a player was
-      description: "Gives you a list of servers where a player was. Limited to 1000 results.
-      **Attention: You must use name OR uuid as your parameter, not both!**"
+      description: "Gives you a list of servers where a player was. Limited to 1000 results. **Attention: You must use name OR uuid as your parameter, not both!**"
       requestBody:
         content:
           application/json:
@@ -267,6 +264,10 @@ paths:
                 online_after:
                   type: integer
                   description: "The server should have been online after this unix timestamp. Defaults to showing all servers which were online at last ping. **Set to 0 to show all servers**"
+                software:
+                  enum: ["any", "vanilla", "paper", "spigot", "bukkit"]
+                  description: "The software the server is running on. (any, vanilla, paper, spigot, bukkit)"
+                  type: string
               required:
                 - api_key
             example:
@@ -275,6 +276,7 @@ paths:
               max_players: 20
               cracked: true
               protocol: 763
+              software: "paper"
       responses:
         "200":
           description: OK
@@ -472,7 +474,7 @@ paths:
   /stats:
     get:
       summary: Get stats about ServerSeeker
-      description: "Gives you stats about ServerSeeker. Very inaccurate."
+      description: "Gives you stats about ServerSeeker. Somewhat inaccurate."
       responses:
         200:
           description: OK
@@ -481,15 +483,11 @@ paths:
               schema:
                 type: object
                 properties:
-                  data:
-                    type: object
-                    properties:
                       server_count:
                         type: integer
                         description: The amount of servers in the database
+                        example: 936207
                       player_history_count:
                         type: integer
                         description: The amount of players in the database
-                    example:
-                      server_count: 936207
-                      player_history_count: 42175558
+                        example: 42175558
