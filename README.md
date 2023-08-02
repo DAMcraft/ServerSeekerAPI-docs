@@ -1,1 +1,1 @@
-Now using OpenAPI. View rendered version [here](https://htmlpreview.github.io/?https://github.com/DAMcraft/ServerSeekerAPI-docs/blob/master/docs.html).
+Now using OpenAPI. View rendered version at https://serverseeker.net/docs.html.
